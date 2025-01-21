@@ -4,7 +4,7 @@ const Footer = () => {
 	return (
 		<footer className='w-full bg-black h-56 '>
 			<div className='w-[1500px] px-8 mx-auto py-10'>
-				<div className='flex items-center gap-28 text-lg '>
+				<div className='flex items-center gap-28 text-lg  justify-center'>
 					<ul className='text-orange-600'>
 						<li className='hover:underline'>
 							<a href='#'>
@@ -94,7 +94,6 @@ const Footer = () => {
 						</li>
 					</ul>
 					<div>
-				  
 					</div>
 				</div>
 			</div>

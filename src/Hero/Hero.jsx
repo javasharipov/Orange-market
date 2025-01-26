@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Loading from '../Loading/Loading'
 import { request } from '../api'
 import ProductModal from './modal'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 
 const Hero = () => {
 	const limit = 5
@@ -26,11 +28,11 @@ const Hero = () => {
 					params: {
 						limit,
 						skip: (count - 1) * limit,
-						category: selectedCategory || undefined,
+						category: selectedCategory,
 					},
 				})
 				.then(res => {
-					if (count === 1) {
+					if (count === 0) {
 						setProducts(res.data.products)
 					} else {
 						setProducts(prevProducts => [...prevProducts, ...res.data.products])
@@ -51,6 +53,7 @@ const Hero = () => {
 
 	return (
 		<>
+			<Header />
 			{products.length === 0 ? (
 				<Loading count={10} />
 			) : (
@@ -65,7 +68,7 @@ const Hero = () => {
 										: 'bg-orange-500'
 								} text-white select-none cursor-pointer`}
 								key={index}
-								onClick={() => handleCategoryClick(category)} // Handle category click
+								onClick={() => handleCategoryClick(category)}
 							>
 								{category}
 							</div>
@@ -116,6 +119,7 @@ const Hero = () => {
 					)}
 				</div>
 			)}
+			<Footer />
 		</>
 	)
 }
